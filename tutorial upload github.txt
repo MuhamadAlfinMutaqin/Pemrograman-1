@@ -1,0 +1,98 @@
+A. Setup Awal (Sekali Saja)
+
+1. Install Git
+
+Install Git → https://git-scm.com
+
+Cek:
+
+git --version
+2. Set Identitas Git
+git config --global user.name "Nama Kamu"
+git config --global user.email "emailkamu@gmail.com"
+
+📁 B. Persiapan Project
+
+Masuk ke folder:
+
+cd "C:\Users\Dell\Documents\Kuliah Unpam\Pemrograman 1"
+
+Struktur yang disarankan:
+
+Pemrograman-1/
+├── Pertemuan-1/
+├── Pertemuan-2/
+├── Pertemuan-3/
+├── README.md
+└── .gitignore
+3. Buat README.md
+# Pemrograman 1
+Kumpulan latihan dari beberapa pertemuan mata kuliah Pemrograman 1 (Java).
+
+Setiap folder berisi materi seperti:
+- Variabel & Tipe Data
+- Input Output
+- Percabangan
+- Perulangan
+4. Buat .gitignore (Penting untuk Java)
+notepad .gitignore
+
+Isi:
+
+*.class
+bin/
+build/
+target/
+.vscode/
+.idea/
+
+
+⚙️ C. Inisialisasi Git (Local)
+git init
+git add .
+git commit -m "Initial commit Pemrograman 1"
+
+
+☁️ D. Upload ke GitHub
+
+1. Buat Repo di GitHub
+Nama: Pemrograman-1
+Jangan centang README
+2. Hubungkan ke GitHub
+git remote add origin https://github.com/USERNAME/Pemrograman-1.git
+
+Cek:
+
+git remote -v
+3. Push Pertama
+git branch -M main
+git push -u origin main
+
+
+⚠️ Jika Error “non-fast-forward”
+
+Gunakan ini:
+
+git pull origin main --allow-unrelated-histories
+git push -u origin main
+
+
+🔄 E. Cara Update (Setiap Ada Tugas Baru)
+
+Misal kamu nambah file di Pertemuan-4
+
+1. Tambahkan perubahan
+git add .
+2. Commit
+git commit -m "Tambah tugas pertemuan 4"
+3. Push
+git push
+
+
+🔁 F. Alur Singkat (Wajib Diingat)
+
+Setiap update cukup:
+
+git add .
+git commit -m "pesan perubahan"
+git push
