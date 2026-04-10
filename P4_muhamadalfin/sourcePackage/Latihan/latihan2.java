@@ -23,7 +23,16 @@ public class latihan2 {
         persenTransportasi = (transport/total) *100;
         persenBelanja = (belanja/total) *100;
 
-        //S2
+        //S2//
+        System.out.println("\n=== HASIL PERHITUNGAN ===");
+        System.out.println("Total Pengeluaran = Rp " + total);
+
+        System.out.println("\nPersentase:");
+        System.out.println("Makan = " + persenMakan + "%");
+        System.out.println("Transport = " + persenTransportasi + "%");
+        System.out.println("Belanja = " + persenBelanja + "%");
+
+        input.close();
 
 
     }
