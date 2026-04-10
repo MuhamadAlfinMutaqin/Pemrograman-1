@@ -96,3 +96,76 @@ Setiap update cukup:
 git add .
 git commit -m "pesan perubahan"
 git push
+
+Cara Paling Praktis (1 Commit untuk Semua)
+
+Kalau perubahannya masih satu konteks (misalnya revisi tugas):
+
+git add .
+git commit -m "Revisi pertemuan 2, 3, dan 4"
+git push
+
+👉 Ini sudah benar dan paling cepat.
+
+🎯 Cara Lebih Rapi (Best Practice)
+
+Kalau mau terlihat lebih profesional, commit per pertemuan:
+
+git add Pertemuan-2/
+git commit -m "Revisi pertemuan 2"
+
+git add Pertemuan-3/
+git commit -m "Revisi pertemuan 3"
+
+git add Pertemuan-4/
+git commit -m "Revisi pertemuan 4"
+
+git push
+
+👉 Keuntungan:
+
+histori jelas
+dosen bisa lihat perubahan per topik
+🔍 Cara Cek Sebelum Commit (Penting)
+git status
+
+👉 Biar tahu file mana saja yang berubah
+
+1. Apa yang Terjadi Saat File Dihapus?
+
+Misalnya kamu hapus file di Visual Studio Code:
+
+👉 Git akan mendeteksi:
+
+deleted: Pertemuan-2/Main.java
+
+Cek dengan:
+
+git status
+✅ 2. Cara Commit Penghapusan File
+Cara cepat:
+git add .
+git commit -m "Hapus file tidak digunakan di pertemuan 2"
+git push
+
+👉 git add . akan otomatis mendeteksi file yang dihapus
+
+Cara lebih spesifik:
+git add Pertemuan-2/
+git commit -m "Hapus file Main.java di pertemuan 2"
+git push
+🔥 Alternatif (Perintah Khusus Hapus)
+
+Kalau mau pakai Git langsung:
+
+git rm Pertemuan-2/Main.java
+git commit -m "Hapus file Main.java"
+git push
+🔍 3. Cara Cek Sebelum Commit
+git status
+
+Contoh output:
+
+deleted: Pertemuan-3/Program.java
+
+👉 Artinya siap di-commit
