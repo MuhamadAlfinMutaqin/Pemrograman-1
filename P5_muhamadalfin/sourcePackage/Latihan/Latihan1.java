@@ -1,79 +1,56 @@
 package P5_muhamadalfin.sourcePackage.Latihan;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
+import java.util.Scanner;
 
 public class Latihan1 {
+
     public static void main(String[] args) {
-        BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
-        String BacaInput = "";
-        Byte JmlData = 0;
-        Byte DataArray[];
 
-        System.out.print("Jumlah data : ");
-        try {
-            BacaInput = dataIn.readLine();
-        } catch (IOException e) {
-            System.out.println("Ada kesalahan !");
-        }
+        Scanner input = new Scanner(System.in);
 
-        JmlData = Byte.parseByte(BacaInput);
-        DataArray = new Byte[JmlData];
+        int totalPertemuan = 21;
 
-        // Membaca data dari keyboard
-        System.out.println();
-        for (Byte i = 0; i < JmlData; i++) {
-            System.out.print("DataArray[" + i + "] = ");
-            try {
-                BacaInput = dataIn.readLine();
-            } catch (IOException e) {
-                System.out.println("Ada kesalahan !");
+        // Hitung minimal kehadiran 75%
+        int minimalHadir = (int) Math.ceil(0.75 * totalPertemuan);
+
+        // Input
+        System.out.print("Masukkan nilai: ");
+        int nilai = input.nextInt();
+
+        System.out.print("Masukkan jumlah kehadiran: ");
+        int hadir = input.nextInt();
+
+        char grade;
+
+        // Jika kehadiran >= 75%
+        if (hadir >= minimalHadir) {
+
+            if (nilai >= 80) {
+                grade = 'A';
+            } else if (nilai >= 70) {
+                grade = 'B';
+            } else if (nilai >= 60) {
+                grade = 'C';
+            } else if (nilai >= 50) {
+                grade = 'D';
+            } else {
+                grade = 'E';
             }
-            DataArray[i] = Byte.parseByte(BacaInput);
-        }
 
-        // Menampilkan data dari array
-        System.out.println();
-        for (Byte i = 0; i < JmlData; i++) {
-            System.out.println("DataArray[" + i + "] = " + DataArray[i]);
-        }
-
-        // =========================
-        // Mencari nilai max & min
-        // =========================
-        Byte max = DataArray[0];
-        Byte min = DataArray[0];
-
-        for (Byte i = 1; i < JmlData; i++) {
-            if (DataArray[i] > max) {
-                max = DataArray[i];
-            }
-            if (DataArray[i] < min) {
-                min = DataArray[i];
+        } else {
+            // Jika kehadiran < 75%
+            if (nilai >= 55) {
+                grade = 'D';
+            } else {
+                grade = 'E';
             }
         }
 
-        System.out.println("\nNilai Maksimal = " + max);
-        System.out.println("Nilai Minimal  = " + min);
+        // Output
+        System.out.println("Nilai: " + nilai);
+        System.out.println("Kehadiran: " + hadir + " / " + totalPertemuan);
+        System.out.println("Grade: " + grade);
 
-        // =========================
-        // Sorting (Bubble Sort)
-        // =========================
-        for (Byte i = 0; i < JmlData - 1; i++) {
-            for (Byte j = 0; j < JmlData - i - 1; j++) {
-                if (DataArray[j] > DataArray[j + 1]) {
-                    Byte temp = DataArray[j];
-                    DataArray[j] = DataArray[j + 1];
-                    DataArray[j + 1] = temp;
-                }
-            }
-        }
-
-        // Menampilkan hasil sorting
-        System.out.println("\nData setelah diurutkan:");
-        for (Byte i = 0; i < JmlData; i++) {
-            System.out.println("DataArray[" + i + "] = " + DataArray[i]);
-        }
+        input.close();
     }
 }
