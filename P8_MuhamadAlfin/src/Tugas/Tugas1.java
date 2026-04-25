@@ -11,12 +11,8 @@ import java.util.Locale;
  * @author Dell
  */
 public class Tugas1 extends javax.swing.JFrame {
-        String layanan = "";
-        int hargaLayanan= 0;
-        int qty= 0;
-        String item = "";
-        int hargaItem = 0;
-        String totalStr;
+        String layanan,item,totalStr = "";
+        int hargaLayanan,qty,hargaItem= 0;
     
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Tugas1.class.getName());
@@ -200,9 +196,12 @@ public class Tugas1 extends javax.swing.JFrame {
     }
 
     // Item
-    if (jComboBox1.getSelectedItem() != null) {
+    if (jComboBox1.getSelectedIndex() == -1) {
+    jTextArea1.setText("Pilih item terlebih dahulu!");
+    return;}
+    {       
+        
         item = jComboBox1.getSelectedItem().toString();
-
         if (item.equals("Baju")) {
             hargaItem = 2000;
         } else if (item.equals("Celana")) {
