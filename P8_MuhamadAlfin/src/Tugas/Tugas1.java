@@ -3,12 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Tugas;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  *
  * @author Dell
  */
 public class Tugas1 extends javax.swing.JFrame {
+        String layanan = "";
+        int hargaLayanan= 0;
+        int qty= 0;
+        String item = "";
+        int hargaItem = 0;
+        String totalStr;
+    
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Tugas1.class.getName());
 
@@ -39,6 +48,9 @@ public class Tugas1 extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,8 +74,6 @@ public class Tugas1 extends javax.swing.JFrame {
 
         jLabel4.setText("Nama Pelanggan");
 
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
-
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -77,6 +87,11 @@ public class Tugas1 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTextArea1);
 
+        jLabel5.setText("Jumlah");
+
+        jButton2.setText("Reset");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,12 +101,15 @@ public class Tugas1 extends javax.swing.JFrame {
                     .addGap(59, 59, 59)
                     .addComponent(jLabel1))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel4))
-                    .addGap(6, 6, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4)))
+                        .addComponent(jButton2))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,7 +117,12 @@ public class Tugas1 extends javax.swing.JFrame {
                                 .addComponent(jRadioButton1)
                                 .addGap(18, 18, 18)
                                 .addComponent(jRadioButton2)))
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel5)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(21, Short.MAX_VALUE)))
             .addGroup(layout.createSequentialGroup()
@@ -122,11 +145,17 @@ public class Tugas1 extends javax.swing.JFrame {
                     .addComponent(jRadioButton2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -138,10 +167,6 @@ public class Tugas1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         jRadioButton2.setSelected(false);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
@@ -155,16 +180,14 @@ public class Tugas1 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         String nama = jTextField1.getText();
-
+    // nama pelanggan
+    String nama = jTextField1.getText();
     if (nama.equals("")) {
         jTextArea1.setText("Nama pelanggan harus diisi!");
         return;
     }
 
-    String layanan = "";
-    int hargaLayanan = 0;
-
+    // Layanan
     if (jRadioButton1.isSelected()) {
         layanan = "Cuci Biasa";
         hargaLayanan = 3000;
@@ -176,9 +199,7 @@ public class Tugas1 extends javax.swing.JFrame {
         return;
     }
 
-    String item = "";
-    int hargaItem = 0;
-
+    // Item
     if (jComboBox1.getSelectedItem() != null) {
         item = jComboBox1.getSelectedItem().toString();
 
@@ -193,22 +214,61 @@ public class Tugas1 extends javax.swing.JFrame {
         } else if (item.equals("Jas")) {
             hargaItem = 6000;
         }
-    } else {
+     else {
         jTextArea1.setText("Pilih item terlebih dahulu!");
+        return;}
+    }
+    
+
+    //QTY
+    try {
+        qty = Integer.parseInt(jTextField2.getText());
+
+        if (qty <= 0) {
+            jTextArea1.setText("Qty harus lebih dari 0!");
+            return;
+        }
+
+    } catch (NumberFormatException e) {
+        jTextArea1.setText("Qty harus angka!");
         return;
     }
 
-    int total = hargaLayanan + hargaItem;
+    // Total
+    int total = (hargaItem * qty) + hargaLayanan;
+    
+    // Format Rupiah - gunakan variabel instance
+    NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
+    totalStr = nf.format(total);
 
+    // Output
     jTextArea1.setText(
-        "=== STRUK LAUNDRY ===\n" +
-        "Nama      : " + nama + "\n" +
+        """
+        === STRUK LAUNDRY ===
+        Nama      : """ + nama + "\n" +
         "Layanan   : " + layanan + "\n" +
         "Item      : " + item + "\n" +
+        "Qty       : " + qty + "\n" +
         "-------------------------\n" +
-        "Total     : Rp " + total
+        "Total     :" + totalStr
     );
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        // Kosongkan input
+    jTextField1.setText(""); // nama
+    jTextField2.setText(""); // qty
+
+    // Reset pilihan
+    jRadioButton1.setSelected(false);
+    jRadioButton2.setSelected(false);
+
+    jComboBox1.setSelectedIndex(-1);
+
+    // Kosongkan output
+    jTextArea1.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,15 +297,18 @@ public class Tugas1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
